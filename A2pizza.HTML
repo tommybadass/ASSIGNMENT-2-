@@ -1,50 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
+    <title>Pizza Order Form</title>
     <link rel="stylesheet" href="A2pizza.css">
-    <title>Pizza World</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to Pizza World!</h1>
+        <h1>Pizza Order Form</h1>
     </header>
-    <section id="order-form">
-        <h2>Place Your Order</h2>
-        <form action="order_confirmation.html" method="post">
-            <label for="pizza-size">Select Pizza Size:</label>
+    <div class="pizza-image">
+        <img src="placeholder.jpg" alt="Pizza Placeholder">
+    </div>
+    <form id="pizza-form" action="order_confirmation.html" method="GET">
+        <div class="form-group">
+            <label for="pizza-count">How many pizzas?</label>
+            <input type="number" id="pizza-count" name="pizza-count" min="1">
+        </div>
+        <div class="form-group">
+            <label for="pizza-size">Choose pizza size:</label>
             <select id="pizza-size" name="pizza-size">
                 <option value="small">Small</option>
                 <option value="medium">Medium</option>
                 <option value="large">Large</option>
             </select>
-
-            <label>Choose Toppings:</label><br>
-            <input type="checkbox" id="pepperoni" name="topping" value="pepperoni">
-            <label for="pepperoni">Pepperoni</label><br>
-            <input type="checkbox" id="mushrooms" name="topping" value="mushrooms">
-            <label for="mushrooms">Mushrooms</label><br>
-            <input type="checkbox" id="sausage" name="topping" value="sausage">
-            <label for="sausage">Sausage</label><br>
-            <input type="checkbox" id="onions" name="topping" value="onions">
-            <label for="onions">Onions</label><br>
-
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="10">
-
-            <label for="delivery">Delivery Address:</label>
-            <textarea id="delivery" name="delivery-address" rows="4" cols="30"></textarea>
-
+        </div>
+        <div class="form-group">
+            <label>Choose toppings:</label><br>
+            <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni">
+            <label for="pepperoni"><img src="A2Pepperoni.jpg" alt="Pepperoni"> Pepperoni</label><br>
+            <input type="checkbox" id="mushrooms" name="toppings" value="mushrooms">
+            <label for="mushrooms"><img src="A2Mushroom.jpg" alt="Mushrooms"> Mushrooms</label><br>
+            <input type="checkbox" id="onions" name="toppings" value="onions">
+            <label for="onions"><img src="A2onion.jpg" alt="Onions"> Onions</label><br>
+        </div>
+        <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
 
-            <input type="submit" value="Place Order">
-        </form>
-    </section>
-    <section id="order-confirmation">
+    <section id="order-confirmation" style="display: none;">
         <h2>Order Confirmation</h2>
-        <p>Your order details will appear here after submission.</p>
+        <p id="pizza-count-display"></p>
+        <p id="pizza-size-display"></p>
+        <p id="toppings-display"></p>
+        <p id="email-display"></p>
     </section>
-    
 </body>
 </html>
